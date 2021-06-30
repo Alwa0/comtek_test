@@ -16,8 +16,8 @@ When server is runned locally go to [admin panel](http://127.0.0.1:8000/admin). 
 ### API methods
 1. By going to [http://127.0.0.1:8000/api/catalogs](http://127.0.0.1:8000/api/catalogs) you can get a list of all catalogs 
 2. By going to [http://127.0.0.1:8000/api/catalogs/2021/06/30](http://127.0.0.1:8000/api/catalogs/2021/06/30) you can get a list of catalogs that are relevant as of the specified date(30.06.2021)
-3. By going to [http://127.0.0.1:8000/api/elements/name](http://127.0.0.1:8000/api/elements/catalog) you can get a list of elements of current version of specific catalog(name:_catalog_).
-4. By going to [http://127.0.0.1:8000/api/elements/name](http://127.0.0.1:8000/api/elements/catalog/1) you can get a list of elements of specific version of specific catalog(fullname:_catalog_, version:1)
+3. By going to [http://127.0.0.1:8000/api/elements/catalog](http://127.0.0.1:8000/api/elements/catalog) you can get a list of elements of current version of specific catalog(name:_catalog_).
+4. By going to [http://127.0.0.1:8000/api/elements/catalog/1](http://127.0.0.1:8000/api/elements/catalog/1) you can get a list of elements of specific version of specific catalog(fullname:_catalog_, version:1)
 
 ### Examples
 1)
