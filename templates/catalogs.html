@@ -1,6 +1,6 @@
 {% for cat in page_obj %}
     {# Each "dir" is a dir model object. #}
-    {{ cat.pk }}: {{ cat.fullname }}<br>
+    {{ cat.fullname }}.{{ cat.version }}<br>
 
 {% endfor %}
 

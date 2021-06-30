@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 
 
-# method that allows get a list of catalogs
+# method that allows to get a list of catalogs
 def catalogs(request):
     dirs_list = Catalog.objects.all()
     paginator = Paginator(dirs_list, 10)
@@ -14,7 +14,7 @@ def catalogs(request):
     return render(request, 'catalogs.html', {'page_obj': page_obj})
 
 
-# method that allows get a list of catalogs relevant as of the specified date
+# method that allows to get a list of catalogs relevant as of the specified date
 def catalogs_date(request, year, month, day):
     st = f"{year}-{month}-{day}"
     try:
@@ -32,7 +32,7 @@ def catalogs_date(request, year, month, day):
     return render(request, 'catalogs.html', {'page_obj': page_obj})
 
 
-# method that allows get elements of the specific catalog(by current version or specific one)
+# method that allows to get elements of the specific catalog(by current version or specific one)
 def get_elements(request, fullname, version=None):
     # if current version is required
     if version is None:
