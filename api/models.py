@@ -2,13 +2,18 @@ from django.core.validators import validate_slug
 from django.db import models
 
 
+class NonStrippingTextField(models.TextField):
+    def formfield(self, **kwargs):
+        kwargs['strip'] = False
+        return super(NonStrippingTextField, self).formfield(**kwargs)
+
+
 class Catalog(models.Model):
     class Meta:
         unique_together = (('fullname', 'version'),)
-    id = models
-    fullname = models.CharField(max_length=200, validators=[validate_slug])
-    shortname = models.CharField(max_length=100, validators=[validate_slug])
-    description = models.CharField(max_length=400)
+    fullname = NonStrippingTextField()
+    shortname = NonStrippingTextField()
+    description = NonStrippingTextField()
     version = models.CharField(max_length=10, blank=False)
     start_date = models.DateField("Version start day")
 
@@ -17,6 +22,8 @@ class Catalog(models.Model):
 
 
 class Element(models.Model):
+    class Meta:
+        unique_together = (('catalog', 'element_code'),)
     catalog = models.ForeignKey(Catalog, null=False, on_delete=models.CASCADE)
     element_code = models.CharField(max_length=10, blank=False, validators=[validate_slug])
     value = models.CharField(max_length=30, blank=False)

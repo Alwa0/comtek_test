@@ -22,7 +22,7 @@ def catalogs_date(request, year, month, day):
     except ValueError:
         return HttpResponse("Please, use date in 'yyyy-mm-dd' format")
 
-    catalogs_list = Catalog.objects.filter(start_date__gte=d)
+    catalogs_list = Catalog.objects.filter(start_date__lte=d)
     if len(catalogs_list) == 0:
         return HttpResponse("There are no catalogs matching your search")
 
